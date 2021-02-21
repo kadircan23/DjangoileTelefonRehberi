@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Kişi Ekleme Formu</h1>
+        {{form.as_p}}
+
+        <input type="submit" name="save" value="KAYDET">
+        <input type="submit"  name="clean" value="TEMİZLE">
+
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <table style="width:100%">
+          <tr>
+              <th>id</th>
+              <th>Adı</th>
+              <th>Soyadı</th>
+              <th>Telefon No</th>
+              <th>Adres</th>
+              <th>İşlem</th>
+          </tr>
+
+          {% for rehber in tel_rehber %}
+                <tr>
+                    <td>{{rehber.id}}</td>
+                    <td>{{rehber.name}}</td>
+                    <td>{{rehber.surname}}</td>
+                    <td>{{rehber.number}}</td>
+                    <td>{{rehber.address}}</td>
+                    <td><input type="submit" name="edit" value="DÜZENLE">
+                    <input type="submit"  name="clean" value="SİL">
+                </tr>
+          {% endfor %}
+    </table>
+</body>
+</html>

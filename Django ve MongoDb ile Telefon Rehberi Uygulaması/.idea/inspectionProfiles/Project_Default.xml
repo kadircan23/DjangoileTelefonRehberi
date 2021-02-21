@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="rehber.views.tel_rehber" />
+          <option value="MongoDjango.urls.rehber" />
+          <option value="rehber.views.detail_wiev" />
+          <option value="rehber.views.update_wiev" />
+          <option value="rehber.views.delete_wiev" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

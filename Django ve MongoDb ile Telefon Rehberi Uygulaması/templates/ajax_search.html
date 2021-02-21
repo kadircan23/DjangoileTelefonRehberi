@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Telefon Numarası Ara</title>
+    
+        <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %} "></script>
+    </head>
+    <body>
+        <h3>Ara</h3>
+        {% csrf_token %}
+        <input type ='text' id="search" name="search"/>
+        <button id="btnSearch">ARA</button>
+        <ul id="search-results">
+            
+        </ul>  
+        <div><label id="lblMesaj"></label></div>
+        <script>
+            $(function(){
+                $('#btnSearch').click(function(){
+                $.ajax({
+                  type:"POST",
+                  url:"/rehber/ajaxsearch/",
+                  dataType: 'json',
+                  data:{
+                    'search_text': $('#search').val(),
+                    'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                  },
+                  success: function(data, textStatus,jqXHR){
+                      console.log(data);
+                      $('#search-results').html("<li>" + data.search.name + "</li>");
+                  },
+                  error : function(xhr,errmsg,err) {
+                        $('#lblMesaj').html("<div class='alert-box alert radius' data-alert>Oops! Beklenmedik bir hata oluştu: "+errmsg+
+                            " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+                });
+              });
+            });
+        </script>
+    </body>
+</html>
